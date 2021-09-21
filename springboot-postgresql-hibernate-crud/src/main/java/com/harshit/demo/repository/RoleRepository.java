@@ -3,9 +3,9 @@ package com.harshit.demo.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.harshit.demo.model.Employee;
+import com.harshit.demo.model.Role;
 
-@Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
+
+public interface RoleRepository{
 
 }

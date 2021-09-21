@@ -32,7 +32,7 @@ public class EmployeeController {
 	
 	//get employee by id
 	@GetMapping("/employees/{id}")
-	public Employee getEmployee(@PathVariable(value = "id") long employeeId) {
+	public Employee getEmployee(@PathVariable(value = "id") int employeeId) {
 		Optional<Employee> result = employeeRepository.findById(employeeId);
 		Employee employee=null;
 		if(result.isPresent()) {
@@ -47,6 +47,7 @@ public class EmployeeController {
 	//save employee
 	@PostMapping("/employees")
 	public Employee addEmployee(@RequestBody Employee employee) {
+		employee.setId(0);
 		employeeRepository.save(employee);
 		return employee;
 	}
@@ -58,7 +59,7 @@ public class EmployeeController {
 	}
 	
 	@DeleteMapping("/employees/{employeeId}")
-	public String deleteEmployee(@PathVariable long employeeId) {
+	public String deleteEmployee(@PathVariable int employeeId) {
 		Optional<Employee> result = employeeRepository.findById(employeeId);
 		Employee employee=null;
 		if(result.isPresent()) {
